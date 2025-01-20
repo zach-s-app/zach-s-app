@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Create Text File</title>
+</head>
+<body>
+
+<h1>Create Text File</h1>
+
+<button onclick="createTextFile()">Create Text File</button>
+
+<script>
+function createTextFile() {
+  const blob = new Blob([], { type: "text/plain" }); 
+  const url = URL.createObjectURL(blob);
+
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'new_file.txt'; 
+  link.click();
+
+  URL.revokeObjectURL(url); 
+}
+</script>
+
+</body>
+</html>
